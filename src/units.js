@@ -2,6 +2,7 @@ const DECIMALS = 24;
 
 /** Converts a NEAR amount such as "0.2" to yoctoNEAR as a string. */
 export function nearToYocto(near) {
+  if (String(near).trim().startsWith("-")) throw new Error("amount must not be negative");
   const [whole, frac = ""] = String(near).split(".");
   if (frac.length > DECIMALS) throw new Error("too many decimal places");
   return (BigInt(whole || "0") * 10n ** BigInt(DECIMALS) + BigInt(frac.padEnd(DECIMALS, "0") || "0")).toString();
