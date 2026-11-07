@@ -2,5 +2,8 @@
   "name": "mission-dao-demo",
   "version": "0.1.0",
   "type": "module",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test"
+  }
 }
